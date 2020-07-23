@@ -1,6 +1,6 @@
 const reverse = require("./solve");
 
-test("when str is 'Hello World' should return 6", () => {
+test("when str is 'Hello World' should return 'DLROw OLLEh' ", () => {
   expect(reverse("Hello World")).toBe("DLROw OLLEh");
 });
 
