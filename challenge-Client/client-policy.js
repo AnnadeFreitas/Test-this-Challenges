@@ -89,44 +89,31 @@ function getPolicy(namePet, age, species, breed) {
     return "Breed " + breed + " doe's not exist!";
   }
 
+  let atRisk = false;
   let setHumanAge = 0;
-  if (breedUpperCase === "SMALL" && speciesUpperCase === "DOG") {
-    setHumanAge = age * 4;
-  } else if (breedUpperCase === "MEDIUM" && speciesUpperCase === "DOG") {
-    setHumanAge = age * 5;
-  } else if (breedUpperCase === "LARGE" && speciesUpperCase === "DOG") {
-    setHumanAge = age * 7;
-  } else if (breedUpperCase === "SMALL" && speciesUpperCase === "CAT") {
-    setHumanAge = age * 2;
-  } else if (breedUpperCase === "MEDIUM" && speciesUpperCase === "CAT") {
-    setHumanAge = age * 3;
-  } else if (breedUpperCase === "LARGE" && speciesUpperCase === "CAT") {
-    setHumanAge = age * 5;
+
+  if (speciesUpperCase === "DOG") {
+    if (breedUpperCase === "SMALL") {
+      setHumanAge = age * 4;
+    } else if (breedUpperCase === "MEDIUM") {
+      setHumanAge = age * 5;
+    } else if (breedUpperCase === "LARGE") {
+      setHumanAge = age * 7;
+    }
+    if (setHumanAge > 10) {
+      atRisk = true;
+    }
   }
 
-  let atRisk = false;
-  if (breedUpperCase === "SMALL" && speciesUpperCase === "DOG") {
-    if (age * 4 > 10) {
-      atRisk = true;
+  if (speciesUpperCase === "CAT") {
+    if (breedUpperCase === "SMALL") {
+      setHumanAge = age * 2;
+    } else if (breedUpperCase === "MEDIUM") {
+      setHumanAge = age * 3;
+    } else if (breedUpperCase === "LARGE") {
+      setHumanAge = age * 5;
     }
-  } else if (breedUpperCase === "MEDIUM" && speciesUpperCase === "DOG") {
-    if (age * 5 > 10) {
-      atRisk = true;
-    }
-  } else if (breedUpperCase === "LARGE" && speciesUpperCase === "DOG") {
-    if (age * 7 > 10) {
-      atRisk = true;
-    }
-  } else if (breedUpperCase === "SMALL" && speciesUpperCase === "CAT") {
-    if (age * 2 > 20) {
-      atRisk = true;
-    }
-  } else if (breedUpperCase === "MEDIUM" && speciesUpperCase === "CAT") {
-    if (age * 3 > 20) {
-      atRisk = true;
-    }
-  } else if (breedUpperCase === "LARGE" && speciesUpperCase === "CAT") {
-    if (age * 5 > 20) {
+    if (setHumanAge > 20) {
       atRisk = true;
     }
   }
