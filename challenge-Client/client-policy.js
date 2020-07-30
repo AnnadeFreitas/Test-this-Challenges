@@ -56,12 +56,12 @@ function register(name, lastName, zipCode, email, birthday) {
   };
 }
 
-function getPolicy(namePet, age, species, breed) {
+function getPolicy(namePet, petAge, species, breed) {
   if (namePet === "" || namePet === null) {
     return "Pet Name can't be Null!";
   }
 
-  if (age === "" || age === null) {
+  if (petAge === "" || petAge === null) {
     return "Pet Age can't be Null!";
   }
 
@@ -90,40 +90,40 @@ function getPolicy(namePet, age, species, breed) {
   }
 
   let atRisk = false;
-  let setHumanAge = 0;
+  let setHumanPetAge = 0;
 
   if (speciesUpperCase === "DOG") {
     if (breedUpperCase === "SMALL") {
-      setHumanAge = age * 4;
+      setHumanPetAge = petAge * 4;
     } else if (breedUpperCase === "MEDIUM") {
-      setHumanAge = age * 5;
+      setHumanPetAge = petAge * 5;
     } else if (breedUpperCase === "LARGE") {
-      setHumanAge = age * 7;
+      setHumanPetAge = petAge * 7;
     }
-    if (setHumanAge > 10) {
+    if (setHumanPetAge > 10) {
       atRisk = true;
     }
   }
 
   if (speciesUpperCase === "CAT") {
     if (breedUpperCase === "SMALL") {
-      setHumanAge = age * 2;
+      setHumanPetAge = petAge * 2;
     } else if (breedUpperCase === "MEDIUM") {
-      setHumanAge = age * 3;
+      setHumanPetAge = petAge * 3;
     } else if (breedUpperCase === "LARGE") {
-      setHumanAge = age * 5;
+      setHumanPetAge = petAge * 5;
     }
-    if (setHumanAge > 20) {
+    if (setHumanPetAge > 20) {
       atRisk = true;
     }
   }
 
   return {
     namePet: namePet,
-    age: age,
+    petAge: petAge,
     species: speciesUpperCase,
     breed: breedUpperCase,
-    humenAge: setHumanAge,
+    humanPetAge: setHumanPetAge,
     isAtRisk: atRisk,
   };
 }
