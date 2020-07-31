@@ -38,8 +38,10 @@ function register(name, lastName, zipCode, email, birthday) {
   }
 
   const year = 31536000000;
-  birthday = new Date(birthday);
-  const yearsOld = parseInt((new Date().getTime() - birthday.getTime()) / year);
+  newBirthday = new Date(birthday);
+  const yearsOld = parseInt(
+    (new Date().getTime() - newBirthday.getTime()) / year
+  );
 
   if (yearsOld < 18) {
     return "User must have more than 18 years old";
